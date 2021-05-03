@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/Tema_Alocator.dir/main.cpp.o CMakeFiles/Tema_Alocator.dir/test.cpp.o  -o Tema_Alocator 

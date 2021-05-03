@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/iancu/Desktop/Tema_Alocator/MemoryBlock.h
+
+/home/iancu/Desktop/Tema_Alocator/Point.h
+
+/home/iancu/Desktop/Tema_Alocator/PoolAllocator.h
+MemoryBlock.h
+/home/iancu/Desktop/Tema_Alocator/MemoryBlock.h
+vector
+-
+cstdlib
+-
+
+/home/iancu/Desktop/Tema_Alocator/main.cpp
+iostream
+-
+PoolAllocator.h
+/home/iancu/Desktop/Tema_Alocator/PoolAllocator.h
+Point.h
+/home/iancu/Desktop/Tema_Alocator/Point.h
+test.h
+/home/iancu/Desktop/Tema_Alocator/test.h
+
+/home/iancu/Desktop/Tema_Alocator/test.cpp
+iostream
+-
+chrono
+-
+Point.h
+/home/iancu/Desktop/Tema_Alocator/Point.h
+PoolAllocator.h
+/home/iancu/Desktop/Tema_Alocator/PoolAllocator.h
+test.h
+/home/iancu/Desktop/Tema_Alocator/test.h
+
+/home/iancu/Desktop/Tema_Alocator/test.h
+
