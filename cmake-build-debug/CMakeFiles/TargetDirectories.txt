@@ -1,3 +1,0 @@
-/home/iancu/Desktop/Tema_Alocator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/iancu/Desktop/Tema_Alocator/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/iancu/Desktop/Tema_Alocator/cmake-build-debug/CMakeFiles/Tema_Alocator.dir

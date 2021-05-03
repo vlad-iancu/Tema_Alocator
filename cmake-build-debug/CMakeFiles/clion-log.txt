@@ -1,4 +1,0 @@
-/opt/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" /home/iancu/Desktop/Tema_Alocator
--- Configuring done
--- Generating done
--- Build files have been written to: /home/iancu/Desktop/Tema_Alocator/cmake-build-debug
