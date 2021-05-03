@@ -23,3 +23,6 @@ This way, no matter what we do, the allocator will return the right block of mem
 
 One disadvantage of the current implementation is that the object user cannot free memory to the operating system unless the whole allocator is destroyed. \
 This can be solved introducing a defragmentation process to allow us freeing unnecesary memory pools and improve resource consumption.
+
+### Stress testing
+The speed test consists of an arbitrary large amount of allocations and deallocation of homogenous objects
