@@ -10,12 +10,12 @@
 #include <cstdlib>
 
 struct MemoryStats {
-    size_t allocations;
-    size_t deallocations;
-    size_t max_usage;
-    size_t current_usage;
-    size_t system_usage;
-    int pools;
+    size_t allocations = 0;
+    size_t deallocations = 0;
+    size_t max_usage = 0;
+    size_t current_usage = 0;
+    size_t system_usage = 0;
+    int pools = 0;
 };
 
 
@@ -50,13 +50,6 @@ template<typename T>
 PoolAllocator<T>::PoolAllocator(int _pool_size) {
     pool_size = _pool_size;
     allocation = nullptr;
-
-    stats.max_usage = 0;
-    stats.pools = 0;
-    stats.allocations = 0;
-    stats.deallocations = 0;
-    stats.current_usage = 0;
-    stats.system_usage = 0;
 }
 
 template<typename T>
@@ -65,7 +58,11 @@ PoolAllocator<T>::~PoolAllocator() {
         free(pool);
     }
 }
-
+/**
+ * When we allocate a new object, we just advance the allocation pointer to the next object
+ * @tparam T
+ * @return
+ */
 template<typename T>
 T *PoolAllocator<T>::allocate() {
     if (allocation == nullptr) {
@@ -78,7 +75,12 @@ T *PoolAllocator<T>::allocate() {
     if (stats.current_usage > stats.max_usage) stats.max_usage = stats.current_usage;
     return memory;
 }
-
+/**
+ * When we deallocate an object, we set the allocation pointer to the current object
+ * and set the next pointer to the previous allocation pointer
+ * @tparam T
+ * @param obj
+ */
 template<typename T>
 void PoolAllocator<T>::deallocate(T *obj) {
     MemoryBlock *block = reinterpret_cast<MemoryBlock *>(obj) - 1;
@@ -87,7 +89,14 @@ void PoolAllocator<T>::deallocate(T *obj) {
     stats.deallocations++;
     stats.current_usage -= sizeof(T);
 }
-
+/**
+ * Allocates a new pool memory for our objects
+ * In this pool we keep the memory for the object preceded by a pointer to the next block.
+ * So a memory pool of size N objects will span N * (size_t + sizeof(T)) bytes
+ *
+ * @tparam T the type of object we want to allocate memory for
+ * @return
+ */
 template<typename T>
 MemoryBlock *PoolAllocator<T>::allocate_pool() {
     size_t total_memory = pool_size * (sizeof(T) + sizeof(MemoryBlock));
